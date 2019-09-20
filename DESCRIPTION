@@ -1,14 +1,11 @@
 Package: JDDM
 Title: R-functions for layouting LaTeX-manuscripts for publication in the Journal of Dynamic Decision Making
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person("Andreas", "Fischer", email = "andreasfischer1985@web.de", role = c("aut", "cre"))
+Maintainer: 'Andreas Fischer' <andreasfischer1985@web.de>
 Description: This package includes a number of functions to facilitate the layouting of LaTeX-manuscripts in a highly automated manner directly from R.
-Depends: R (>= 3.6.0)
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
-Maintainer: 'Andreas Fischer' <andreasfischer1985@web.de>
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
-Imports: 
-    stringr

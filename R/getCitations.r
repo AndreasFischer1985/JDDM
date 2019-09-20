@@ -6,16 +6,16 @@
 
 getCitations <- function (text) 
 {
-    matches1 = stringr::str_match_all(file, "[(][\\w& ,]+( & |[ ]?et al[.]?[ ]?)?[\\w]*, [0-9]{4}[a-z]?[)]")[[1]][, 
-        1]
-    matches1a = stringr::str_match_all(file, "[^(][\\w& ,]+( & |[ ]?et al[.]?[ ]?)?[\\w]*, [0-9]{4}[a-z]?[)]")[[1]][, 
-        1]
-    matches1b = stringr::str_match_all(file, "[(][\\w& ,]+( & |[ ]?et al[.]?[ ]?)?[\\w]*, [0-9]{4}[a-z]?[^)]")[[1]][, 
-        1]
-    matches1c = stringr::str_match_all(file, "[^(][\\w& ,]+( & |[ ]?et al[.]?[ ]?)?[\\w]*, [0-9]{4}[a-z]?[^)]")[[1]][, 
-        1]
-    matches2 = stringr::str_match_all(file, "([A-Z][\\w]+(, )*)+([ ]?& |[ ]?and |[ ]?et al[.]?[ ]?)?[\\w]* [(][0-9]{4}[a-z]?[)]")[[1]][, 
-        1]
+    matches1 = JDDM::matchAll(text, "[(][\\w& ,]+( & |[ ]?et al[.]?[ ]?)?[\\w]*, [0-9]{4}[a-z]?[)]", 
+        perl = T)[[1]][, 1]
+    matches1a = JDDM::matchAll(text, "[^(][\\w& ,]+( & |[ ]?et al[.]?[ ]?)?[\\w]*, [0-9]{4}[a-z]?[)]", 
+        perl = T)[[1]][, 1]
+    matches1b = JDDM::matchAll(text, "[(][\\w& ,]+( & |[ ]?et al[.]?[ ]?)?[\\w]*, [0-9]{4}[a-z]?[^)]", 
+        perl = T)[[1]][, 1]
+    matches1c = JDDM::matchAll(text, "[^(][\\w& ,]+( & |[ ]?et al[.]?[ ]?)?[\\w]*, [0-9]{4}[a-z]?[^)]", 
+        perl = T)[[1]][, 1]
+    matches2 = JDDM::matchAll(text, "([A-Z][\\w]+(, )*)+([ ]?& |[ ]?and |[ ]?et al[.]?[ ]?)?[\\w]* [(][0-9]{4}[a-z]?[)]", 
+        perl = T)[[1]][, 1]
     patterns = c(gsub("(^[(;,. ]+|[);,. ]+$)", "", c(matches1, 
         matches1a, matches1b, matches1c)), matches2)
     toSeparate = grep("([0-9]{4}[a-z]?[, ]+)+[0-9]{4}[a-z]?", 

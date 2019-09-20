@@ -6,9 +6,10 @@
 
 extractPassage <- function (text, startReg = "\nReferences\n", endReg = "$") 
 {
-    if (dim(stringr::str_locate(text, startReg))[1] > 1 | dim(stringr::str_locate(text, 
-        endReg))[1] > 1) 
+    if (dim(JDDM::matchOne(text, startReg, value = F))[1] > 1 | 
+        dim(JDDM::matchOne(text, endReg, value = F))[1] > 1) 
         warning("regular expressions match multiple passages. only first passage will be considered.")
-    substr(text, stringr::str_locate(text, startReg)[1, 2] + 
-        1, stringr::str_locate(text, endReg)[1, 1] - 1)
+    substr(text, JDDM::matchOne(text, startReg, value = F)[1, 
+        2] + 1, JDDM::matchOne(text, endReg, value = F)[1, 1] - 
+        1)
 }
