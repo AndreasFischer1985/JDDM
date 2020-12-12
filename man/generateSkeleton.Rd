@@ -18,7 +18,7 @@ generateSkeleton(title = "Title", runhead = "Short Title",
   contributions = "All authors contributed equally to this paper.",
   editor = "Andreas Fischer",
   creativecommons = "This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.",
-  citation = NA, save = T)
+  citation = NA, save = T, replaceUnderscore = T)
 }
 \description{
 Generates a tex-file compatible with JDDMLA03.cls.

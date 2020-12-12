@@ -14,7 +14,7 @@ generateSkeleton <- function (title = "Title", runhead = "Short Title", authors 
     references = NULL, declarations = "The authors declare they have no conflict of interests.", 
     contributions = "All authors contributed equally to this paper.", 
     editor = "Andreas Fischer", creativecommons = "This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.", 
-    citation = NA, save = T) 
+    citation = NA, save = T, replaceUnderscore = T) 
 {
     shorten = function(authors) {
         li = strsplit(authors, "([,&]|and)")[[1]]
@@ -35,26 +35,26 @@ generateSkeleton <- function (title = "Title", runhead = "Short Title", authors 
     if (!is.null(abstract)) {
         abstract = gsub("[\\]*&", "&", abstract)
         abstract = gsub("&", "\\\\&", abstract)
-        abstract = gsub("<U+200B>", "", abstract)
-        abstract = gsub("<U+FB00>", "ff", abstract)
+        abstract = gsub("​", "", abstract)
+        abstract = gsub("ﬀ", "ff", abstract)
     }
     if (!is.null(keywords)) {
         keywords = gsub("[\\]*&", "&", keywords)
         keywords = gsub("&", "\\\\&", keywords)
-        keywords = gsub("<U+200B>", "", keywords)
-        keywords = gsub("<U+FB00>", "ff", keywords)
+        keywords = gsub("​", "", keywords)
+        keywords = gsub("ﬀ", "ff", keywords)
     }
     if (!is.null(introduction)) {
         introduction = gsub("[\\]*&", "&", introduction)
         introduction = gsub("&", "\\\\&", introduction)
-        introduction = gsub("<U+200B>", "", introduction)
-        introduction = gsub("<U+FB00>", "ff", introduction)
+        introduction = gsub("​", "", introduction)
+        introduction = gsub("ﬀ", "ff", introduction)
     }
     if (!is.null(references)) {
         references = gsub("[[\\]*&", "&", references)
         references = gsub("&", "\\\\&", references)
-        references = gsub("<U+200B>", "", references)
-        references = gsub("<U+FB00>", "ff", references)
+        references = gsub("​", "", references)
+        references = gsub("ﬀ", "ff", references)
     }
     text = paste0("\\documentclass{JDDMLA03}\n", "\\usepackage{graphicx}\n", 
         "\\usepackage{lipsum}\n", "\\usepackage{lettrine}\n", 
@@ -88,10 +88,12 @@ generateSkeleton <- function (title = "Title", runhead = "Short Title", authors 
             ""), "\\begin{dates}\n", "\\end{dates}\n", ifelse(!is.null(references), 
             paste0("\\begin{references}\n", references, "\n\\end{references}\n"), 
             ""), "\\urlstyle{sf}\n", "\\vfill\n", "\\end{document}\n")
+    if (replaceUnderscore == T) 
+        text = gsub("_", "\\_", text)
     if (save) {
         text = enc2utf8(text)
-        text = gsub("<U+200B>", "", text)
-        text = gsub("<U+FB00>", "ff", text)
+        text = gsub("​", "", text)
+        text = gsub("ﬀ", "ff", text)
         writeLines(text, con = "Manuscript.tex", useBytes = TRUE)
         message(paste0("Tex-file \"Manuscript.tex\" written to\n", 
             getwd()))
