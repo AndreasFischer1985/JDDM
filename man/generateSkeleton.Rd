@@ -2,7 +2,7 @@
 % Please edit documentation in R/generateSkeleton.r
 \name{generateSkeleton}
 \alias{generateSkeleton}
-\title{Function generateSceleton}
+\title{Function generateSkeleton}
 \usage{
 generateSkeleton(title = "Title", runhead = "Short Title",
   authors = "Andreas Fischer, Daniel V. Holt, and Joachim Funke",

@@ -27,5 +27,5 @@ layoutManuscript(path = getwd(), doc = "Manuscript.docx",
   citation = NA, save = T, replaceUnderscore = T, ...)
 }
 \description{
-Generates a tex-file compatible with JDDMLA03.cls.
+Generates a tex-file compatible with JDDMLA03.cls based on an existing manuscript.
 }

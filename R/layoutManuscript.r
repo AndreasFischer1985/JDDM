@@ -1,6 +1,6 @@
 #' Function layoutManuscript
 #' 
-#' Generates a tex-file compatible with JDDMLA03.cls.
+#' Generates a tex-file compatible with JDDMLA03.cls based on an existing manuscript.
 #' @export
 
 
