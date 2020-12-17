@@ -1,4 +1,4 @@
-#' Function generateSceleton
+#' Function generateSkeleton
 #' 
 #' Generates a tex-file compatible with JDDMLA03.cls.
 #' @export
@@ -64,7 +64,7 @@ generateSkeleton <- function (title = "Title", runhead = "Short Title", authors 
         number, "}\n", "\\ArticleType{", type, "}\n", ifelse(!is.null(received), 
             paste0("\\Received{", received, "}\n"), ""), ifelse(!is.null(accepted), 
             paste0("\\Accepted{", accepted, "}\n"), ""), ifelse(!is.null(published), 
-            paste0("\\Received{", published, "}\n"), ""), ifelse(!is.null(supplement), 
+            paste0("\\Published{", published, "}\n"), ""), ifelse(!is.null(supplement), 
             paste0("\\Supplement{", supplement, "}\n"), ""), 
         "\\title{\\begin{flushleft}", title, "\\end{flushleft}}\n", 
         "\\runhead{", runhead, "}\n", "\\author{", authors, "}\n", 
