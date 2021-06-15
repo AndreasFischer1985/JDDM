@@ -1,6 +1,6 @@
 Package: JDDM
 Title: A number of functions to facilitate the layouting of LaTeX-manuscripts in a highly automated manner directly from R
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: person("Andreas", "Fischer", email = "andreasfischer1985@web.de", role = c("aut", "cre"))
 Maintainer: 'Andreas Fischer' <andreasfischer1985@web.de>
 Description: This package includes a number of functions to facilitate the layouting of LaTeX-manuscripts in a highly automated manner directly from R.
@@ -9,5 +9,3 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
-Imports: 
-    jsonlite
